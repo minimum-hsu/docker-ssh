@@ -1,13 +1,3 @@
 FROM alpine
 
-ARG DEFAULT_UID=1000
-ARG DEFAULT_USER=user
-ARG DEFAULT_GID=1000
-ARG DEFAULT_GROUP=user
-
 RUN apk add --no-cache openssh sshpass rsync
-
-RUN addgroup -g $DEFAULT_GID -S $DEFAULT_GROUP && \
-  adduser -u $DEFAULT_UID -S $DEFAULT_USER -G $DEFAULT_GROUP
-
-USER $DEFAULT_USER
